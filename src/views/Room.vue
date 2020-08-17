@@ -118,7 +118,7 @@
             :disabled-dates="[...Booking]"
             ></calendar>
           </div>
-          <button @click="showModel = true">預約時段</button>
+          <button @click="showModel = true">預約日期</button>
           <!--<button @click="delRoom">刪除</button>-->
         </div>
       </div>
@@ -131,7 +131,7 @@
           @submit.prevent="postRoom"
           v-if="!checkSuccess && !checkFail"
         >
-          <h3>預約時段</h3>
+          <h3>預約資料</h3>
           <label for="username">姓名</label>
           <ValidationProvider rules="required" v-slot="{ errors }">
             <input
@@ -289,6 +289,7 @@ export default {
         });
     },
     getDate(start, end) { //取得兩日期之間其他日期
+      if(start == end) return this.form.newBooking = start;
       const result = [];
       const beginDay = start.split("-");
       const endDay = end.split("-");
@@ -391,7 +392,7 @@ $Hred: #ec2c04;
   max-width: 1200px;
   margin: auto;
   display: flex;
-  padding-top: 40px;
+  padding: 40px 0;
   @media(max-width: 700px) {
     flex-direction: column;
   }
