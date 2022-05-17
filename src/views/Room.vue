@@ -217,7 +217,7 @@ export default {
     getRoom() {
       const vm = this;
       const { id } = vm.$route.params;
-      const url = `${process.env.VUE_APP_CORS}${process.env.VUE_APP_APIPATH}/room/${id}`;
+      const url = `${process.env.VUE_APP_APIPATH}/room/${id}`;
       vm.$bus.$emit('Loading', true);
       vm.axios
         .get(url, {
@@ -253,7 +253,7 @@ export default {
       )
         return;
       const { id } = vm.$route.params;
-      const url = `${process.env.VUE_APP_CORS}${process.env.VUE_APP_APIPATH}/room/${id}`;
+      const url = `${process.env.VUE_APP_APIPATH}/room/${id}`;
       const start = new Date(
         vm.SelectedDate.start.setDate(vm.SelectedDate.start.getDate() + 1)
       );
@@ -342,7 +342,7 @@ export default {
     },
     delRoom() {
       const vm = this;
-      const url = `${process.env.VUE_APP_CORS}${process.env.VUE_APP_APIPATH}/rooms`;
+      const url = `${process.env.VUE_APP_APIPATH}/rooms`;
       vm.axios
         .delete(url, {
           headers: {

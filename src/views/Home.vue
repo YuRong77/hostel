@@ -36,7 +36,7 @@ export default {
   methods: {
     getRooms() {
       const vm = this;
-      const url = `${process.env.VUE_APP_CORS}${process.env.VUE_APP_APIPATH}/rooms`;
+      const url = `${process.env.VUE_APP_APIPATH}/rooms`;
       vm.$bus.$emit('Loading', true);
       vm.axios
         .get(url, {
